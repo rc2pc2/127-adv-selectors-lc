@@ -15,6 +15,12 @@ header{
     padding: 1rem;
 }
 
+/* Seleziona sia header, che tutti i  div con classe main-content  */
+main header, 
+div.main-content{
+    padding: 1.5rem 5rem;
+}
+
 h1{
     font-size: 3.5rem;
 }
@@ -86,11 +92,6 @@ li{
     background-color: #b0c926;
 }
 
-
-.todo-list-padding{
-    padding: 1.5rem 5rem;
-}
-
 .border-bottom-grey{
     border-bottom: #f6f8f9 2px solid;
 }
@@ -99,7 +100,8 @@ li{
     margin-bottom: .75rem;
 }
 
-.circle{
+li.todo-list-section li.done:before{
+    content: '\2714';
     border: 1px solid transparent;
     height: 1.05rem;
     width: 1.05rem;
@@ -107,16 +109,20 @@ li{
     text-align: center;
     border-radius: 50%;
     font-size: .7rem;
-}
-
-.circle-green{
     color: green;
     border-color: green;
 }
 
-.circle-red{
+li.todo-list-section li.undone:before{
+    content: '\2716';
     color: red;
-    border-color: red;
+    border: 1px solid red;
+    height: 1.05rem;
+    width: 1.05rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    font-size: .7rem;
 }
 
 .tag{
@@ -126,7 +132,7 @@ li{
     font-size: .65rem;
 }
 
-#main-logo{
+img#main-logo{
     height: 70px;
 }
 
@@ -135,4 +141,37 @@ li{
     width: 65%;
     margin: 0 auto;
     border-radius: .5rem;
+}
+
+li.todo-list-section{
+    border: #ff00ff 2px solid;
+}
+
+/* TODO Seleziona tutti i div che hanno come classe sia main-content che todo-list-padding */
+div.main-content.todo-list-padding{
+    background-color: rgb(225, 225, 255);
+}
+
+/* * Seleziono tutti i <li> figli diretti di un <ul> */
+ul>li{
+    background-color: rgb(239, 255, 214);
+}
+
+/* * Seleziona tutti i li che abbiano attributo tipo-di-pasta */
+li[tipo-di-pasta]{
+    background-color: rgb(255, 238, 207);
+}
+
+/* ! Seleziona tutti i li che abbiano attributo tipo-di-pasta uguale a "spaghetti" */
+li[tipo-di-pasta="spaghetti"]{
+    background-color: rgb(255, 255, 184);
+}
+
+li li:hover{
+    background-color: #45abea;
+}
+
+button:active{
+    background-color: #45ea8f;
+    font-weight: bold;
 }
